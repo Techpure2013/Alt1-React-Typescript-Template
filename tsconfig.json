@@ -1,0 +1,16 @@
+// Typescript configuration file
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    // Settings to make typescript play nice with webpack
+    "resolvePackageJsonExports": true,
+    "moduleResolution": "bundler",
+    "module": "ESNext"
+  },
+  "include": ["src"]
+}
