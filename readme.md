@@ -7,7 +7,7 @@ how to use
 npm i
 # build
 npm run build
-# alternatively to auto-rebuild when source files are changed
+# Auto-Rebuilds as you save.
 npm run dev
 ```
 
