@@ -9,7 +9,7 @@
   "rsc": false,
   "tsx": true,
   "aliases": {
-    "utils": "./../../lib/utils",
+    "utils": "@/lib/utils",
     "components": "/src/components"
   }
 }
