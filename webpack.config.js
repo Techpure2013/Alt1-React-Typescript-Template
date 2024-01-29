@@ -13,6 +13,9 @@ module.exports = {
     },
     port: 8080,
     open: true,
+    watchFiles: ["src/**/*.tsx", "src/**/*.ts"],
+    liveReload: true,
+    hot: true,
   },
   entry: {
     main: "./index.tsx",

@@ -5,7 +5,7 @@ import { useState } from "react";
 const getAlt1Href = () => {
   const repoName = window.location.host.includes("localhost:8080")
     ? ""
-    : "RS3QuestBuddy/";
+    : "GithubRepoName/";
   const prodSuffix = window.location.host.includes("localhost") ? "" : ".prod";
   return `alt1://addapp/${window.location.protocol}//${window.location.host}/${repoName}appconfig${prodSuffix}.json`;
 };
