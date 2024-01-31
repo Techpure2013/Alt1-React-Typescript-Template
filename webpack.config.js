@@ -5,17 +5,17 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 /**
  * @type {import("webpack").Configuration}
  */
+
 module.exports = {
   context: path.resolve(__dirname, "src"),
   devServer: {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    port: 8080,
-    open: true,
-    watchFiles: ["src/**/*.tsx", "src/**/*.ts"],
+    watchFiles: ["src/**/*.tsx", "src/**/*.ts", "src/**/*.css"],
     liveReload: true,
     hot: true,
+    port: 5173,
   },
   entry: {
     main: "./index.tsx",
@@ -38,8 +38,9 @@ module.exports = {
   mode: "development",
   externals: ["sharp", "canvas", "electron/common"],
   resolve: {
-    extensions: [".wasm", ".tsx", ".ts", ".mjs", ".jsx", ".js"],
+    extensions: [".wasm", ".tsx", ".ts", ".mjs", ".jsx", ".js", ".css", ".png"],
   },
+
   module: {
     rules: [
       {
@@ -59,8 +60,16 @@ module.exports = {
         generator: { filename: "[base]" },
       },
       { test: /\.tsx?$/, loader: "ts-loader" },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
-      { test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"] },
+      {
+        test: /\.css$/,
+        exclude: /node_modules\/(?!@mantine)/,
+        use: ["style-loader", "css-loader"],
+      },
+      { test: /\.module\.css\@mantine$/, use: ["style-loader", "css-loader"] },
+      {
+        test: /\.module\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
       {
         test: /\.data\.png$/,
         loader: "alt1/imagedata-loader",
