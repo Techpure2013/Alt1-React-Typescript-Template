@@ -65,7 +65,10 @@ module.exports = {
         exclude: /node_modules\/(?!@mantine)/,
         use: ["style-loader", "css-loader"],
       },
-      { test: /\.module\.css\@mantine$/, use: ["style-loader", "css-loader"] },
+      {
+        test: /\.module\.css\@mantine$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
       {
         test: /\.module\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
